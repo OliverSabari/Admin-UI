@@ -1,13 +1,14 @@
 import React from 'react'
 
 import { Container, Table } from 'react-bootstrap'
+import Member from './Member'
 
-const Tableformembers = ({membersData}) => {
+const TableForMembers = ({membersData}) => {
 
 
     const tableData = membersData.map(item => {
         return (
-            <Member 
+            <Member
             key={item?.id} 
             name={item?.name}
             email = {item?.email} 
@@ -47,4 +48,4 @@ const Tableformembers = ({membersData}) => {
     )
 }
 
-export default Tableformembers
+export default TableForMembers

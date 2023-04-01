@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {Container} from 'react-bootstrap'
-import Tableformembers from './Tableformembers';
+import TableForMembers from './TableForMembers';
 
 const SearchBar = ({membersData}) => {
   return (
@@ -9,7 +9,7 @@ const SearchBar = ({membersData}) => {
     <Container className='searchContainer'>
         <input type="search" placeholder='Search by name,email or role' className='searchBox'/>
     </Container>
-    <Tableformembers membersData={membersData}/>
+    <TableForMembers membersData={membersData}/>
     </>
   )
 }

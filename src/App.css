@@ -1,19 +1,33 @@
-.headingOfProject{
-    text-align: center;
+.headingOfProject {
+  text-align: center;
+  padding: 10px;
 }
 
-.searchBox{
-    width: 100%;
-    height: 35px;
-    border:1px solid black;
-    outline:none;
+.searchBox {
+  width: 100%;
+  height: 35px;
+  border: 1px solid black;
+  outline: none;
 }
 
-
-.searchContainer{
-    padding: 50px;
+.searchContainer {
+  padding: 50px;
 }
 
-.tableContainer{
-    padding-left: 50px;
+.tableContainer {
+  padding-left: 50px;
+}
+
+.customizeEditIcon {
+  width: 17px;
+  height: 17px;
+}
+
+.deleteIconSpan {
+  padding-left: 15px;
+}
+
+.customizeDeleteIcon {
+  width: 20px;
+  height: 20px;
 }
