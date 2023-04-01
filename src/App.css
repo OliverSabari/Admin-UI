@@ -31,3 +31,27 @@
   width: 20px;
   height: 20px;
 }
+
+.pageNumbersDiv{
+  display: flex;
+  
+}
+
+.pageNumbersStyling{
+  list-style-type: none;
+ 
+}
+
+.pageNumbersAnchor{
+  text-decoration: none;
+  border: 1px solid gray;
+  padding :5px 20px;
+
+  color: black;
+}
+
+.activePage {
+  background-color: darkgray;
+  /* color: white; */
+}
+
