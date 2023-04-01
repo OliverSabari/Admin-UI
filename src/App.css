@@ -1,0 +1,15 @@
+.headingOfProject{
+    text-align: center;
+}
+
+.searchBox{
+    width: 100%;
+    height: 35px;
+    border:1px solid black;
+    outline:none;
+}
+
+
+.searchContainer{
+    padding: 50px;
+}
