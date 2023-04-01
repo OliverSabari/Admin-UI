@@ -11,7 +11,7 @@ const SearchBar = ({membersData}) => {
     </Container>
     <TableForMembers membersData={membersData}/>
     </>
-  )
+  ) 
 }
 
 export default SearchBar
