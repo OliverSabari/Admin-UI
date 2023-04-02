@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import { MEMBERS_PER_PAGE } from '../Utils/constants'
 
 const Pages = ({ membersData, currentPage, updatePageNumber }) => {
@@ -19,6 +19,13 @@ const Pages = ({ membersData, currentPage, updatePageNumber }) => {
   return (
     <Container>
 
+      <Row>
+
+    <Col lg={3}>
+        <Button variant='danger'> Delete Selected </Button>
+    </Col>
+
+    <Col lg={9}>
       <ul className="pageNumbersDiv">
         <li className="pageNumbersStyling">
           <button
@@ -72,8 +79,11 @@ const Pages = ({ membersData, currentPage, updatePageNumber }) => {
             {`>>`}
           </button>
         </li>
-      </ul>
 
+      </ul>
+      </Col>
+
+      </Row>
     </Container>
   )
 }
