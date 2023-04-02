@@ -27,7 +27,13 @@ const SearchBar = ({ membersData }) => {
 
   const filterMembers = (filterMembersData, filterText) => {
 
-    const filteredData = filterMembersData?.filter(item => (item?.name?.toLowerCase().includes(filterText?.toLowerCase())))
+    const filteredData = filterMembersData?.filter(item => (
+      item?.name?.toLowerCase().includes(filterText?.toLowerCase())
+      ||
+      item?.email?.toLowerCase().includes(filterText?.toLowerCase())
+      ||
+      item?.role?.toLowerCase().includes(filterText?.toLowerCase())
+    ))
     setFilteredMembers(filteredData)
   }
 
