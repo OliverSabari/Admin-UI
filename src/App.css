@@ -43,15 +43,13 @@
 }
 
 .pageNumbersAnchor{
-  text-decoration: none;
+ 
   border: 1px solid gray;
   padding :5px 20px;
-
   color: black;
 }
 
 .activePage {
   background-color: darkgray;
-  /* color: white; */
 }
 
