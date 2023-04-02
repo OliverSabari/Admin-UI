@@ -61,6 +61,7 @@ const SearchBar = ({ membersData }) => {
 
       <TableForMembers
         membersData={membersToBeListed}
+        currentPage={currentPage}
       />
 
       <Pages

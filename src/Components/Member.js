@@ -4,13 +4,13 @@ import Edit from '../Images/EditIcon.png'
 
 import Delete from '../Images/DeleteIcon.png'
 
-const Member = ({name , email, role}) => {
+const Member = ({name , email, role , checked}) => {
   return (
 
     <tr>
 
         <td>
-             <input type="checkbox" /> 
+             <input type="checkbox" checked={checked}/> 
         </td>
         <td>
              {name}
