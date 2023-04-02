@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import { MEMBERS_PER_PAGE } from '../Utils/constants'
 
-const Pages = ({ membersData, currentPage, updatePageNumber }) => {
+const Pages = ({ membersData, currentPage, updatePageNumber,searchText }) => {
+
+
+  useEffect(() => {
+
+    if(searchText.length > 0){
+      updatePageNumber(1)
+    }
+  },[searchText]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalPages = []
 
@@ -32,7 +40,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber }) => {
             className="pageNumbersAnchor"
             onClick={() => updatePageNumber(1)}
             disabled={currentPage === 1 ? true : false}
-          >
+          > 
             {`<<`}
           </button>
         </li>
