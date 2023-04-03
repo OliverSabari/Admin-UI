@@ -1,52 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 
 import { Container, Table } from 'react-bootstrap'
 import Member from './Member'
-import { membersToDisplay } from '../Utils/constants'
 
-const TableForMembers = ({membersData,currentPage}) => {
+const TableForMembers = ({membersData,currentPage,name}) => {
 
 
-    const [allCheck, setAllCheck] = useState(false)
-    const [idCheck,setIdCheck] = useState([])
-
-    useEffect(() => {
-          
-            if(allCheck){
-            //     console.log( membersData)
-            //     console.log(currentPage)
-           
-            //    const finalDataToCheck = membersToDisplay(membersData,currentPage)
-            //    console.log("finaldata" + finalDataToCheck)
-               const allId = membersData?.map(item => item.id)
-                setIdCheck(allId)
-            }
-            else{
-                setIdCheck([])
-            }
-    }, [allCheck,currentPage,membersData])
+    const [allCheck, setAllCheck] = useState({})
+   
 
     const tableData = membersData.map(item => {
-        // console.log(idCheck.some(idCheck => idCheck === item.id))
+        
         return (
             <Member
             key={item?.id} 
             name={item?.name}
             email = {item?.email} 
-            role = {item?.role} 
-            checked={idCheck?.length > 0 ? idCheck.some(idCheck => idCheck === item.id) : false}
+            role = {item?.role}
+            checked={allCheck?.[name] ? true : false}
             />
         )
     })
 
-    console.log(currentPage)
-    console.log(idCheck)
 
+    const handleChange = (e) => {
 
-    const handleChange = () => {
-        setAllCheck(prevVal => !prevVal)
+        const {name,checked} = e.target
+       
+        setAllCheck(prevVal => {
+            return (
+                {
+                    ...prevVal,
+                    [name] : checked
+                }
+            )
+        })
     }
-
+  
     return (
         <Container className='tableContainer'>
             <Table>
@@ -55,6 +45,8 @@ const TableForMembers = ({membersData,currentPage}) => {
                         <th>
                             <input type="checkbox" 
                             onChange={handleChange}
+                            name={name}
+                            checked = {allCheck?.[name] || false}
                             />
                         </th>
                         <th>
