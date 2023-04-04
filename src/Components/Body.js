@@ -10,8 +10,8 @@ import { MEMBERS_API } from '../Utils/constants';
 const Body = () => {
   const dispatch = useDispatch()
 
-  const selector = useSelector((store) => store.fetchMembersSlice.membersData)
- console.log("selector is " +selector)
+  const selector = useSelector((store) => store.fetchMembersSlice)
+ console.log("selector is " +selector.membersData)
   useEffect(() => {
     dispatch(fetchMembers(MEMBERS_API))
      
