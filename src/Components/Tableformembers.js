@@ -9,7 +9,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
     const [allCheck, setAllCheck] = useState({})
    
 
-    const tableData = membersData.map(item => {
+    const tableData =membersData.length > 0 && membersData.map(item => {
         
         return (
             <Member

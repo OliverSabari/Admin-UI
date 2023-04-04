@@ -10,7 +10,9 @@ const fetchMembersSlice = createSlice({
         fetchMembers : async (state,action) =>{
             const apiData =await fetch(action.payload)
             const jsonData = await apiData.json()
-            state = jsonData
+            state.membersData = jsonData
+        
+            console.log(state.membersData)
         }
     }
 })

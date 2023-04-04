@@ -8,5 +8,5 @@ export const MEMBERS_PER_PAGE = 10
 export const membersToDisplay = (membersData,currentPage) => {
     const lastIndex = currentPage * MEMBERS_PER_PAGE
     const firstIndex = lastIndex - MEMBERS_PER_PAGE
-    return membersData.slice(firstIndex , lastIndex)
+    return membersData?.slice(firstIndex , lastIndex)
 }

@@ -1,25 +1,21 @@
 
-import { Container } from 'react-bootstrap';
 import './App.css';
-import SearchBar from './Components/SearchBar';
-import useFetchMembers from './Utils/useFetchMembers';
+import Body from './Components/Body';
+import Header from './Components/Header';
+import store from './Utils/store';
+import { Provider } from 'react-redux';
 
 function App() {
 
-  const membersData = useFetchMembers()
 
   return (
-    <>
+    <Provider store={store}>
 
-      <Container className="App">   
-        <h1 className='headingOfProject'> Admin UI</h1>
-      </Container>
-
-      <SearchBar membersData={membersData}/>
+      <Header />
+      <Body />
 
 
-
-    </>
+    </Provider>
   );
 }
 
