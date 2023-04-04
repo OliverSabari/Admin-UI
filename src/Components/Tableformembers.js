@@ -23,7 +23,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
     })
 
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { 
 
         const {name,checked} = e.target
        
@@ -36,7 +36,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
             )
         })
     }
-  
+    
     return (
         <Container className='tableContainer'>
             <Table>
