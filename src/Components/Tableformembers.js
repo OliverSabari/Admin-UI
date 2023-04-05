@@ -14,6 +14,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
         return (
             <Member
             key={item?.id} 
+            id={item?.id}
             name={item?.name}
             email = {item?.email} 
             role = {item?.role}
