@@ -4,6 +4,8 @@ import Edit from '../Images/EditIcon.png'
 
 import Delete from '../Images/DeleteIcon.png'
 
+
+
 const Member = ({ id, name, email, role, checked }) => {
 
   const [newMembersData, setNewMembersData] = useState({ id, name, email, role })
@@ -11,6 +13,12 @@ const Member = ({ id, name, email, role, checked }) => {
   const [isEditSelected, setIsEditSelected] = useState(false)
 
   const isReadOnly = isEditSelected ? "" : "readonly"
+
+  const handleEdit = () => {
+
+    setIsEditSelected(true)
+
+  }
 
   return (
 
@@ -56,23 +64,37 @@ const Member = ({ id, name, email, role, checked }) => {
 
       <td>
 
+        {isEditSelected ? 
+        <>
+        <span>
+          &#10003;
+        </span>
+
+        <span 
+        onClick={() => setIsEditSelected(false)}
+        className='cancelButton'>
+            X
+        </span>
+        </>
+        :
         <span>
 
           <img 
           src={Edit} 
           alt="edit"
           className='customizeEditIcon' 
+          onClick={handleEdit}
           />
 
         </span>
-
+      }
         <span className='deleteIconSpan'>
           <img 
           src={Delete} 
           alt="delete" 
           className='customizeDeleteIcon' 
           />
-          
+
         </span>
 
       </td>

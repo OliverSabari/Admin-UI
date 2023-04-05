@@ -18,10 +18,19 @@
   padding-left: 50px;
 }
 
+.cancelButton:hover{
+  cursor: pointer;
+}
+
 .customizeEditIcon {
   width: 17px;
   height: 17px;
 }
+
+.customizeEditIcon:hover{
+  cursor: pointer;
+}
+
 
 .deleteIconSpan {
   padding-left: 15px;
