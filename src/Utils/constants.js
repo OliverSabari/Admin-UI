@@ -4,7 +4,6 @@ export const MEMBERS_API = "https://geektrust.s3-ap-southeast-1.amazonaws.com/ad
 
 export const MEMBERS_PER_PAGE = 10
 
-
 export const membersToDisplay = (membersData,currentPage) => {
     const lastIndex = currentPage * MEMBERS_PER_PAGE
     const firstIndex = lastIndex - MEMBERS_PER_PAGE

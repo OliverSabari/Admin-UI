@@ -10,20 +10,28 @@ import useFetchMembers from '../Utils/useFetchMembers';
 
 const Body = () => {
 
-  // const selector = useFetchMembers()
-
   const dispatch = useDispatch()
 
   const selector = useSelector((store) =>store.fetchMembersSlice)
-  // console.log("selectore is " + selector)
+  console.log(selector)
   useEffect(() => {
     dispatch(fetchMembers(MEMBERS_API))
      
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  return selector.length > 0 ? (
-    <SearchBar membersData={selector} /> 
-  ): ""
+  return  (
+    <>
+
+    {selector.loading && <div> Loading ..</div>}
+    {!selector.loading && selector.error ? <div> {selector.error} </div> : null }
+    {!selector.loading && selector.membersData.length > 0 ? 
+        <SearchBar membersData={selector.membersData} /> 
+    : null}
+
+
+
+    </>
+  )
 }
 
 export default Body
