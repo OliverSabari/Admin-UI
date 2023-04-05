@@ -5,7 +5,6 @@ import {  useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMembers } from '../Utils/fetchMembersSlice';
 import { MEMBERS_API } from '../Utils/constants';
-import useFetchMembers from '../Utils/useFetchMembers';
 
 
 const Body = () => {
@@ -13,7 +12,7 @@ const Body = () => {
   const dispatch = useDispatch()
 
   const selector = useSelector((store) =>store.fetchMembersSlice)
-  console.log(selector)
+  
   useEffect(() => {
     dispatch(fetchMembers(MEMBERS_API))
      

@@ -4,7 +4,6 @@ import { Container } from 'react-bootstrap'
 import { membersToDisplay } from '../Utils/constants';
 import Pages from './Pages';
 import TableForMembers from './TableForMembers';
-import useFetchMembers from '../Utils/useFetchMembers';
 
 const SearchBar = ({ membersData }) => {
 
@@ -12,7 +11,7 @@ const SearchBar = ({ membersData }) => {
 
   const [searchText, setSearchText] = useState("")
 
-  const filterMembersData = useFetchMembers()
+  const filterMembersData = membersData
 
   const [filteredMembers, setFilteredMembers] = useState([])
 
