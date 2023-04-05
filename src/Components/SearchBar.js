@@ -38,7 +38,7 @@ const SearchBar = ({ membersData }) => {
 
 
 
-  return membersData.length ===0 ? "Loading" : (
+  return  (
 
     <>
 
