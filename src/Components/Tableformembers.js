@@ -59,7 +59,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
                         <th>
                             Role
                         </th>
-                        <th>
+                        <th colSpan="2">
                             Action
                         </th>
                     </tr>

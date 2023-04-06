@@ -36,6 +36,10 @@
 }
 
 
+.cancelButton{
+  margin-left: 15px;
+}
+
 .okayButton:hover{
   cursor: pointer;
 }
@@ -61,6 +65,10 @@
 .customizeDeleteIcon {
   width: 20px;
   height: 20px;
+}
+
+.customizeDeleteIcon:hover{
+  cursor: pointer;
 }
 
 .pageNumbersDiv{

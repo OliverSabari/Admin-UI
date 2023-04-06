@@ -6,8 +6,6 @@ import Delete from '../Images/DeleteIcon.png'
 import { useDispatch } from 'react-redux'
 import { addNewMembersData } from '../Utils/fetchMembersSlice'
 
-
-
 const Member = ({ id, name, email, role, checked }) => {
 
   const dispatch = useDispatch()
@@ -50,6 +48,11 @@ const Member = ({ id, name, email, role, checked }) => {
     setCancelEdit(true)
     setIsEditSelected(false)
     setNewMembersData({ id, name, email, role })
+  }
+
+  const handleDelete = (memberDetails) => {
+   
+      window.confirm("Would you like to delete this record of : " + memberDetails.name) && console.log("delete") 
   }
 
   return (
@@ -132,15 +135,20 @@ const Member = ({ id, name, email, role, checked }) => {
 
         </span>
       }
+  </td> 
+
+  <td>
+ 
         <span className='deleteIconSpan'>
           <img 
           src={Delete} 
           alt="delete" 
           className='customizeDeleteIcon' 
+          onClick={() => handleDelete(newMembersData)}
           />
 
         </span>
-
+       
       </td>
 
     </tr>

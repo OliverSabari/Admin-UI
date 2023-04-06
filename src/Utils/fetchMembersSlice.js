@@ -31,7 +31,8 @@ const fetchMembersSlice = createSlice({
        
         return state
    
-    }
+    },
+    
     },
        extraReducers : builder => {
         builder.addCase(fetchMembers.pending,(state) => {
