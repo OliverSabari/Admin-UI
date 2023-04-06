@@ -18,6 +18,24 @@
   padding-left: 50px;
 }
 
+.withoutBorderStyle{
+  border: none;
+}
+
+.withBorderStyle:focus , .withoutBorderStyle:focus {
+  outline: none;
+}
+
+.withBorderStyle {
+  border : none;
+  border-bottom: 1px solid black;
+}
+
+.emailWidth {
+  width: 250px;
+}
+
+
 .okayButton:hover{
   cursor: pointer;
 }

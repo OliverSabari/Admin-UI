@@ -20,6 +20,8 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const isReadOnly = isEditSelected ? "" : "readonly"
 
+  const inputStyle = isEditSelected ? "withBorderStyle" : "withoutBorderStyle"
+
   const handleEdit = () => {
     setCancelEdit(false)
     setIsEditSelected(true)
@@ -70,6 +72,7 @@ const Member = ({ id, name, email, role, checked }) => {
         readOnly={isReadOnly} 
         name='name'
         onChange={handleChange}
+        className={inputStyle}
         />
 
       </td>
@@ -82,6 +85,7 @@ const Member = ({ id, name, email, role, checked }) => {
         readOnly={isReadOnly}
         name='email'
         onChange={handleChange}
+        className={`emailWidth ${inputStyle}`}
         />
 
       </td>
@@ -94,6 +98,7 @@ const Member = ({ id, name, email, role, checked }) => {
         readOnly={isReadOnly} 
         name='role'
         onChange={handleChange}
+        className={inputStyle}
         />
 
       </td>
