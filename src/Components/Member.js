@@ -12,12 +12,33 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const [isEditSelected, setIsEditSelected] = useState(false)
 
+  const [cancelEdit,setCancelEdit] = useState(false)
+
   const isReadOnly = isEditSelected ? "" : "readonly"
 
   const handleEdit = () => {
-
+    setCancelEdit(false)
     setIsEditSelected(true)
 
+  }
+
+  const handleChange = (e) => {
+      const {name,value} = e.target 
+      
+      setNewMembersData(prevVal => {
+        return (
+          {
+            ...prevVal,
+            [name] : value
+          }
+        )
+      })
+  }
+
+  const handleCancelEdit = () => {
+    setCancelEdit(true)
+    setIsEditSelected(false)
+    setNewMembersData({ id, name, email, role })
   }
 
   return (
@@ -36,8 +57,10 @@ const Member = ({ id, name, email, role, checked }) => {
 
         <input
         type="text" 
-        value={newMembersData.name}
+        value={cancelEdit ? name : newMembersData.name}
         readOnly={isReadOnly} 
+        name='name'
+        onChange={handleChange}
         />
 
       </td>
@@ -46,8 +69,10 @@ const Member = ({ id, name, email, role, checked }) => {
 
         <input 
         type="text" 
-        value={newMembersData.email} 
+        value={cancelEdit ? email : newMembersData.email} 
         readOnly={isReadOnly}
+        name='email'
+        onChange={handleChange}
         />
 
       </td>
@@ -56,8 +81,10 @@ const Member = ({ id, name, email, role, checked }) => {
 
         <input 
         type="text" 
-        value={newMembersData.role} 
+        value={cancelEdit ? role : newMembersData.role} 
         readOnly={isReadOnly} 
+        name='role'
+        onChange={handleChange}
         />
 
       </td>
@@ -71,7 +98,7 @@ const Member = ({ id, name, email, role, checked }) => {
         </span>
 
         <span 
-        onClick={() => setIsEditSelected(false)}
+        onClick={handleCancelEdit}
         className='cancelButton'>
             X
         </span>
