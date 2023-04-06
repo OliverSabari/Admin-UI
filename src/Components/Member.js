@@ -3,16 +3,20 @@ import React, { useState } from 'react'
 import Edit from '../Images/EditIcon.png'
 
 import Delete from '../Images/DeleteIcon.png'
+import { useDispatch } from 'react-redux'
+import { addNewMembersData } from '../Utils/fetchMembersSlice'
 
 
 
 const Member = ({ id, name, email, role, checked }) => {
 
+  const dispatch = useDispatch()
+
   const [newMembersData, setNewMembersData] = useState({ id, name, email, role })
 
   const [isEditSelected, setIsEditSelected] = useState(false)
 
-  const [cancelEdit,setCancelEdit] = useState(false)
+  const [cancelEdit,setCancelEdit] = useState(false) 
 
   const isReadOnly = isEditSelected ? "" : "readonly"
 
@@ -33,6 +37,11 @@ const Member = ({ id, name, email, role, checked }) => {
           }
         )
       })
+  }
+
+  const handleEditedValue = () => {
+    setIsEditSelected(false)
+    dispatch(addNewMembersData(newMembersData))
   }
 
   const handleCancelEdit = () => {
@@ -93,7 +102,10 @@ const Member = ({ id, name, email, role, checked }) => {
 
         {isEditSelected ? 
         <>
-        <span>
+        <span
+        onClick={handleEditedValue}
+        className='okayButton'
+        >
           &#10003;
         </span>
 

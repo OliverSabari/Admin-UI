@@ -14,19 +14,35 @@ const fetchMembersSlice = createSlice({
         membersData : [],
         error : ""
     },
+    reducers: {
+    addNewMembersData : (state,action) => {
+        const newMembersState = state.membersData?.map(item => {
+           
+                    if(item.id === action.payload.id){
+                        console.log(action.payload)
+                        return action.payload
+                    }
+                    else {
+                        return item
+                    }
+        })
+     
+        state = {...state,membersData : newMembersState}
+       
+        return state
+   
+    }
+    },
        extraReducers : builder => {
         builder.addCase(fetchMembers.pending,(state) => {
-            console.log("loading true")
             state.loading = true
         })
         builder.addCase(fetchMembers.fulfilled,(state,action) => {
-            console.log("loading true")
             state.loading = false
             state.membersData = action.payload 
             state.error = ""
         })
         builder.addCase(fetchMembers.rejected,(state,action) => {
-            console.log("loading true")
            state.loading = false
             state.membersData = [] 
             state.error = action.error.message
@@ -35,5 +51,6 @@ const fetchMembersSlice = createSlice({
     }
 )
 
+export const {addNewMembersData} = fetchMembersSlice.actions
 
 export default fetchMembersSlice.reducer

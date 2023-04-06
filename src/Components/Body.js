@@ -12,7 +12,7 @@ const Body = () => {
   const dispatch = useDispatch()
 
   const selector = useSelector((store) =>store.fetchMembersSlice)
-  
+  console.log(selector.membersData)
   useEffect(() => {
     dispatch(fetchMembers(MEMBERS_API))
      

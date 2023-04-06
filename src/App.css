@@ -18,6 +18,10 @@
   padding-left: 50px;
 }
 
+.okayButton:hover{
+  cursor: pointer;
+}
+
 .cancelButton:hover{
   cursor: pointer;
 }
