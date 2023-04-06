@@ -4,7 +4,7 @@ import Edit from '../Images/EditIcon.png'
 
 import Delete from '../Images/DeleteIcon.png'
 import { useDispatch } from 'react-redux'
-import { addNewMembersData } from '../Utils/fetchMembersSlice'
+import { addNewMembersData, deleteMemberData } from '../Utils/fetchMembersSlice'
 
 const Member = ({ id, name, email, role, checked }) => {
 
@@ -52,7 +52,7 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const handleDelete = (memberDetails) => {
    
-      window.confirm("Would you like to delete this record of : " + memberDetails.name) && console.log("delete") 
+      window.confirm("Would you like to delete this record of : " + memberDetails.name) && dispatch(deleteMemberData(memberDetails)) 
   }
 
   return (
