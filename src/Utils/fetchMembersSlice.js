@@ -107,6 +107,6 @@ const fetchMembersSlice = createSlice({
 }
 )
 
-export const { addNewMembersData, deleteMemberData, checkboxSelected, checkboxRemove } = fetchMembersSlice.actions
+export const { addNewMembersData, deleteMemberData, checkboxSelected, checkboxRemove,multipleRecorDelete } = fetchMembersSlice.actions
 
 export default fetchMembersSlice.reducer
