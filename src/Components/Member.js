@@ -22,6 +22,8 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const inputStyle = isEditSelected ? "withBorderStyle" : "withoutBorderStyle"
 
+  const rowStyle = isChecked ? "dataBackground" : "noDataBackground"
+
   const handleEdit = () => {
     setCancelEdit(false)
     setIsEditSelected(true)
@@ -76,7 +78,7 @@ const Member = ({ id, name, email, role, checked }) => {
 
   return (
 
-    <tr className='dataBackground'>
+    <tr className={`${rowStyle}`}>
 
       <td>
 

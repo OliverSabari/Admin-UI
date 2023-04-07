@@ -22,7 +22,11 @@
   background-color: gray;
 }
 
-input[type="text"] {
+.noDataBackground {
+  background-color: white;
+}
+
+.dataBackground input[type="text"] {
 
   background-color : gray; 
 
