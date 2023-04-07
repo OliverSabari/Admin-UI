@@ -12,7 +12,8 @@ const fetchMembersSlice = createSlice({
     initialState: {
         loading: false,
         membersData: [],
-        error: ""
+        error: "",
+        selectedCheckbox : []
     },
     reducers: {
         addNewMembersData: (state, action) => {
@@ -44,6 +45,24 @@ const fetchMembersSlice = createSlice({
             state = { ...state, membersData: nonDeletedState }
 
             return state
+        },
+        checkboxSelected : (state,action) => {
+
+                state = {...state ,selectedCheckbox: [...state.selectedCheckbox , action.payload]}
+
+                return state
+        },
+        checkboxRemove : (state,action) => {
+
+            const handleCheckBoxFilter = (selectedCheckbox) => {
+                return !action.payload.includes(selectedCheckbox)
+            }
+
+            const newSelectedCheckbox = state.selectedCheckbox.filter(handleCheckBoxFilter)
+
+            state = {...state , selectedCheckbox : newSelectedCheckbox}
+
+            return state
         }
     },
     extraReducers: builder => {
@@ -64,6 +83,6 @@ const fetchMembersSlice = createSlice({
 }
 )
 
-export const { addNewMembersData, deleteMemberData } = fetchMembersSlice.actions
+export const { addNewMembersData, deleteMemberData,checkboxSelected,checkboxRemove } = fetchMembersSlice.actions
 
 export default fetchMembersSlice.reducer

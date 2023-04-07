@@ -4,7 +4,7 @@ import Edit from '../Images/EditIcon.png'
 
 import Delete from '../Images/DeleteIcon.png'
 import { useDispatch } from 'react-redux'
-import { addNewMembersData, deleteMemberData } from '../Utils/fetchMembersSlice'
+import { addNewMembersData, checkboxRemove, checkboxSelected, deleteMemberData } from '../Utils/fetchMembersSlice'
 
 const Member = ({ id, name, email, role, checked }) => {
 
@@ -62,12 +62,13 @@ const Member = ({ id, name, email, role, checked }) => {
     const {name,checked} = e.target
 
     console.log(name + checked)
-    
-    if(checked){
 
+    if(checked){
+      dispatch(checkboxSelected(name))
       setIsChecked(true)
     }
     else{
+      dispatch(checkboxRemove(name))
       setIsChecked(false)
     }
 
