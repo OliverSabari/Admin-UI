@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Edit from '../Images/EditIcon.png'
 
@@ -23,6 +23,17 @@ const Member = ({ id, name, email, role, checked }) => {
   const inputStyle = isEditSelected ? "withBorderStyle" : "withoutBorderStyle"
 
   const rowStyle = isChecked ? "dataBackground" : "noDataBackground"
+
+  useEffect(() => {
+    if(checked){
+      dispatch(checkboxSelected(id))
+      setIsChecked(true)
+    }
+    else{
+      dispatch(checkboxRemove(id))
+      setIsChecked(false)
+    }
+  },[checked])
 
   const handleEdit = () => {
     setCancelEdit(false)
