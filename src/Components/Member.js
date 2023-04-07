@@ -57,7 +57,19 @@ const Member = ({ id, name, email, role, checked }) => {
       window.confirm("Would you like to delete this record of : " + memberDetails.name) && dispatch(deleteMemberData(memberDetails)) 
   }
 
-  const handleCheckboxChange =() => {
+  const handleCheckboxChange =(e) => {
+
+    const {name,checked} = e.target
+
+    console.log(name + checked)
+    
+    if(checked){
+
+      setIsChecked(true)
+    }
+    else{
+      setIsChecked(false)
+    }
 
   }
 
@@ -69,9 +81,11 @@ const Member = ({ id, name, email, role, checked }) => {
 
         <input 
         type="checkbox" 
-        checked={checked} 
+        checked={isChecked} 
+        name={id}
         onChange={handleCheckboxChange}
         />
+
       </td>
 
       <td>
