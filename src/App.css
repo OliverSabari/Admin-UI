@@ -18,6 +18,16 @@
   padding-left: 50px;
 }
 
+.dataBackground{
+  background-color: gray;
+}
+
+input[type="text"] {
+
+  background-color : gray; 
+
+}
+
 .withoutBorderStyle{
   border: none;
 }

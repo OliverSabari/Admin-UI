@@ -16,6 +16,8 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const [cancelEdit,setCancelEdit] = useState(false) 
 
+  const [isChecked, setIsChecked] = useState(false)
+
   const isReadOnly = isEditSelected ? "" : "readonly"
 
   const inputStyle = isEditSelected ? "withBorderStyle" : "withoutBorderStyle"
@@ -55,15 +57,20 @@ const Member = ({ id, name, email, role, checked }) => {
       window.confirm("Would you like to delete this record of : " + memberDetails.name) && dispatch(deleteMemberData(memberDetails)) 
   }
 
+  const handleCheckboxChange =() => {
+
+  }
+
   return (
 
-    <tr>
+    <tr className='dataBackground'>
 
       <td>
 
         <input 
         type="checkbox" 
         checked={checked} 
+        onChange={handleCheckboxChange}
         />
       </td>
 
