@@ -61,7 +61,7 @@ const fetchMembersSlice = createSlice({
         checkboxRemove: (state, action) => {
 
             const handleCheckBoxFilter = (selectedCheckbox) => {
-                return !action.payload.includes(selectedCheckbox)
+                return !selectedCheckbox.includes(action.payload)
             }
 
             const newSelectedCheckbox = state.selectedCheckbox.filter(handleCheckBoxFilter)

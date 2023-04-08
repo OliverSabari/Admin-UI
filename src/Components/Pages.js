@@ -24,7 +24,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   do {
 
-    i++;
+    i++; 
     totalPages.push(i)
 
   } while (i <= membersData.length / MEMBERS_PER_PAGE)

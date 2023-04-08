@@ -2,13 +2,16 @@ import React, {  useState } from 'react'
 
 import { Container, Table } from 'react-bootstrap'
 import Member from './Member'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCheck } from '../Utils/allCheckSlice'
 
 const TableForMembers = ({membersData,currentPage,name}) => {
 
 
-    const [allCheck, setAllCheck] = useState({})
-   
+    const dispatch = useDispatch()
 
+    const allCheck = useSelector((store) => store.allCheckSlice)
+   
     const tableData = membersData?.map(item => {
         
         return (
@@ -27,17 +30,11 @@ const TableForMembers = ({membersData,currentPage,name}) => {
     const handleChange = (e) => { 
 
         const {name,checked} = e.target
-       
-        setAllCheck(prevVal => {
-            return (
-                {
-                    ...prevVal,
-                    [name] : checked
-                }
-            )
-        })
+
+        dispatch(addCheck({[name] : checked}))
     }
-    
+
+
     return (
         <Container className='tableContainer'>
             <Table>

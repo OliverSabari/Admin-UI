@@ -67,7 +67,11 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const handleDelete = (memberDetails) => {
    
-      window.confirm("Would you like to delete this record of : " + memberDetails.name) && dispatch(deleteMemberData(memberDetails)) 
+     if(window.confirm("Would you like to delete this record of : " + memberDetails.name)){
+      dispatch(deleteMemberData(memberDetails)) 
+     
+     } 
+     
   }
 
   const handleCheckboxChange =(e) => {
