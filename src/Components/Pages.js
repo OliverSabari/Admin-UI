@@ -4,6 +4,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 import { MEMBERS_PER_PAGE } from '../Utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { multipleRecorDelete } from '../Utils/fetchMembersSlice'
+import { removeCheck } from '../Utils/allCheckSlice'
 
 const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
@@ -30,7 +31,11 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
   } while (i <= membersData.length / MEMBERS_PER_PAGE)
 
   const handleDeletion = () => {
-    window.confirm("Would you like to delete the selected records ?") && dispatch(multipleRecorDelete())
+
+    if(window.confirm("Would you like to delete the selected records ?") ){
+      dispatch(multipleRecorDelete())
+      dispatch(removeCheck())
+    } 
   }
 
 
