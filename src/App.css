@@ -104,6 +104,7 @@ body{
   border: none;
   padding :5px 20px;
   color: black;
+  background-color: white;
 }
 
 .activePage {
