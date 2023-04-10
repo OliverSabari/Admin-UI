@@ -34,6 +34,12 @@ const TableForMembers = ({membersData,currentPage,name}) => {
         dispatch(addCheck({[name] : checked}))
     }
 
+    if(membersData.length ===0) {
+        return (
+            <p className='noRecords'> No records matches your search </p>
+        )
+    }
+
 
     return (
         <Container className='tableContainer'>
