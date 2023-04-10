@@ -5,6 +5,7 @@ body{
 .headingOfProject {
   text-align: center;
   padding: 10px;
+  color: #dc3545;
 }
 
 .searchBox {
@@ -12,6 +13,7 @@ body{
   height: 35px;
   border: 1px solid black;
   outline: none;
+  /* border-radius: 10px; */
 }
 
 .searchContainer {
@@ -108,6 +110,7 @@ body{
 }
 
 .activePage {
-  background-color: orangered;
+  background-color: #dc3545;
+  color: white;
 }
 
