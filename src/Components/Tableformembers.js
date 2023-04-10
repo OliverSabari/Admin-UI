@@ -36,7 +36,7 @@ const TableForMembers = ({membersData,currentPage,name}) => {
 
     if(membersData.length ===0) {
         return (
-            <p className='noRecords'> No records matches your search </p>
+            <h4 className='noRecords'> No records matches your search . </h4>
         )
     }
 

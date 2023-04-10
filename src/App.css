@@ -114,3 +114,7 @@ body{
   color: white;
 }
 
+.noRecords{
+  color: #dc3545;
+  padding: 20px;
+}
