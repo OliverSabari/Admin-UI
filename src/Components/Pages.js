@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import { MEMBERS_PER_PAGE } from '../Utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,6 +16,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
     if (searchText.length > 0) {
       updatePageNumber(1)
     }
+    
   }, [searchText]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalPages = []
