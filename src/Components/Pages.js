@@ -93,7 +93,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
             <li className="pageNumbersStyling">
               <button
-                className="pageNumbersAnchor"
+                className={currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
                 onClick={() => updatePageNumber(currentPage + 1)}
                 disabled={currentPage === totalPages.length ? true : false}
               >
@@ -103,7 +103,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
             <li className="pageNumbersStyling">
               <button
-                className="pageNumbersAnchor"
+                className={currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
                 onClick={() => updatePageNumber(totalPages.length)}
                 disabled={currentPage === totalPages.length ? true : false}
               >
