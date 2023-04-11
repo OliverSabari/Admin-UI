@@ -4,9 +4,19 @@ import { Container } from 'react-bootstrap';
 
 
 const Header = () => {
+
   return (
-    <Container className="App">
-        <h1 className='headingOfProject'> Admin UI</h1>
+
+    <Container 
+    className="App"
+    >
+       
+        <h1 
+        className='headingOfProject'
+        > 
+        Admin UI
+        </h1>
+        
       </Container>
   )
 }
