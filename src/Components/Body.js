@@ -22,7 +22,7 @@ const Body = () => {
     <>
 
     {selector.loading && <div> Loading ..</div>}
-    {!selector.loading && selector.error ? <div> {selector.error} </div> : null }
+    {!selector.loading && selector.error ? <div> We are facing some unexpected error. Please try again after some time. ( {selector.error} )</div> : null }
     {!selector.loading && selector.membersData.length > 0 ? 
         <SearchBar membersData={selector.membersData} /> 
     : null}
