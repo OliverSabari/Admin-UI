@@ -10,8 +10,9 @@ function App() {
   return (
 
     <Provider store={store}>  {/* Provider which provides the redux store to our app */}
-      
+
       <Header />
+
       <Body />
 
     </Provider>

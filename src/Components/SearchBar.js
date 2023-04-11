@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { Container } from 'react-bootstrap'
 import { membersToDisplay } from '../Utils/constants';
 import Pages from './Pages';
@@ -7,18 +6,23 @@ import TableForMembers from './TableForMembers';
 
 const SearchBar = ({ membersData }) => {
 
+  //setting current Page
   const [currentPage, setCurrentPage] = useState(1)
 
+  //Capturing searchText entered by user
   const [searchText, setSearchText] = useState("")
 
-  const filterMembersData = membersData
-
+  //Storing filtered members Data
   const [filteredMembers, setFilteredMembers] = useState([])
 
+  //Copying the props data to new const variable to filter the data from this variable
+  const filterMembersData = membersData
+
+  //Determining data based on the search Text 
   const passingMembersData = searchText.length === 0 ? membersData : filteredMembers
 
+  //Getting current page Data
   const membersToBeListed = membersToDisplay(passingMembersData, currentPage)
-
 
   const updatePageNumber = (number) => {
     setCurrentPage(number)
@@ -33,26 +37,27 @@ const SearchBar = ({ membersData }) => {
       ||
       item?.role?.toLowerCase().includes(filterText?.toLowerCase())
     ))
+
     setFilteredMembers(filteredData)
   }
 
 
 
-  return  (
+  return (
 
     <>
 
-      <Container className='searchContainer'>
+      <Container
+        className='searchContainer'
+      >
 
         <input
           type="search"
-          placeholder='Search by name,email or role'
+          placeholder='Search by name, email or role'
           className='searchBox'
           onChange={(e) => {
-
             filterMembers(filterMembersData, e.target.value)
             setSearchText(e.target.value)
-
           }}
         />
 
@@ -61,7 +66,7 @@ const SearchBar = ({ membersData }) => {
       <TableForMembers
         membersData={membersToBeListed}
         currentPage={currentPage}
-        name={`check${currentPage}`}
+        name={`check${currentPage}`}   /* Name Prop for the checkbox */
       />
 
       <Pages
