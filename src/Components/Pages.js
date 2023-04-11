@@ -60,7 +60,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
           <ul className="pageNumbersDiv">
             <li className="pageNumbersStyling">
               <button
-                className={currentPage === 1 ? "" : "pageNumbersAnchor"}
+                className={currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
                 onClick={() => updatePageNumber(1)}
                 disabled={currentPage === 1 ? true : false}
               >
@@ -70,7 +70,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
             <li className="pageNumbersStyling">
               <button
-                className={currentPage === 1 ? "" : "pageNumbersAnchor"}
+                className={currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
                 onClick={() => updatePageNumber(currentPage - 1)}
                 disabled={currentPage === 1 ? true : false}
               >

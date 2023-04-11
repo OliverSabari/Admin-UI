@@ -109,6 +109,13 @@ body{
   background-color: white;
 }
 
+.pageNumbersDisabledAnchor{
+  border: none;
+  padding :5px 20px;
+  color: gray;
+  background-color: white;
+}
+
 .activePage {
   background-color: #dc3545;
   color: white;
