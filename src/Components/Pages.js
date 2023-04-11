@@ -70,7 +70,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
             <li className="pageNumbersStyling">
               <button
-                className="pageNumbersAnchor"
+                className={currentPage === 1 ? "" : "pageNumbersAnchor"}
                 onClick={() => updatePageNumber(currentPage - 1)}
                 disabled={currentPage === 1 ? true : false}
               >
