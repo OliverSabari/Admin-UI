@@ -11,12 +11,21 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   const selector = useSelector((store) => store.fetchMembersSlice)
 
+  const prevButtonStyle = currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
+
+  const prevIsDisabled = currentPage === 1 ? true : false
+
+  const nextButtonStyle = currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
+
+  const nextIsDisabled = currentPage === totalPages.length ? true : false
+
+  //When searchText changes , Setting the current page to 1
   useEffect(() => {
 
     if (searchText.length > 0) {
       updatePageNumber(1)
     }
-    
+
   }, [searchText]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalPages = []
@@ -25,17 +34,18 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   do {
 
-    i++; 
+    i++;
     totalPages.push(i)
 
   } while (i <= membersData.length / MEMBERS_PER_PAGE)
 
   const handleDeletion = () => {
 
-    if(window.confirm("Would you like to delete the selected records ?") ){
+    if (window.confirm("Would you like to delete the selected records ?")) {
       dispatch(multipleRecorDelete())
       dispatch(removeCheck())
-    } 
+    }
+
   }
 
 
@@ -44,6 +54,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
       <Row>
 
+        { /*Multiple Delete Button */}
         <Col lg={3}>
 
           <Button
@@ -56,65 +67,95 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
         </Col>
 
+        {/* Prev Buttons */}
         <Col lg={9}>
+
           <ul className="pageNumbersDiv">
+
             <li className="pageNumbersStyling">
+
               <button
-                className={currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
+                className={prevButtonStyle}
                 onClick={() => updatePageNumber(1)}
-                disabled={currentPage === 1 ? true : false}
+                disabled={prevIsDisabled}
               >
+
                 {`<<`}
+
               </button>
+
             </li>
 
             <li className="pageNumbersStyling">
+
               <button
-                className={currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
+                className={prevButtonStyle}
                 onClick={() => updatePageNumber(currentPage - 1)}
-                disabled={currentPage === 1 ? true : false}
+                disabled={prevIsDisabled}
               >
+
                 {`<`}
+
               </button>
+
             </li>
 
+            {/*Page Numbers */}
             {totalPages.map(item => {
+
               return (
                 <li key={item} className="pageNumbersStyling">
+
                   <button
                     className={`pageNumbersAnchor ${currentPage === item ? "activePage" : ""}`}
                     onClick={() => updatePageNumber(item)}
                   >
+
                     {item}
+
                   </button>
+
                 </li>
               )
+
             })}
 
+
+            {/*Next Buttons */}
             <li className="pageNumbersStyling">
+
               <button
-                className={currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
+                className={nextButtonStyle}
                 onClick={() => updatePageNumber(currentPage + 1)}
-                disabled={currentPage === totalPages.length ? true : false}
+                disabled={nextIsDisabled}
               >
+
                 {`>`}
+
               </button>
+
             </li>
 
             <li className="pageNumbersStyling">
+
               <button
-                className={currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"}
+                className={nextButtonStyle}
                 onClick={() => updatePageNumber(totalPages.length)}
-                disabled={currentPage === totalPages.length ? true : false}
+                disabled={nextIsDisabled}
               >
+
                 {`>>`}
+
               </button>
+
             </li>
 
           </ul>
+
         </Col>
 
       </Row>
+
     </Container>
   )
 }

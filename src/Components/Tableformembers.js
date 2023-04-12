@@ -33,7 +33,7 @@ const TableForMembers = ({ membersData, currentPage, name }) => {
         dispatch(addCheck({ [name]: checked }))
     }
 
-    //If searched text does not match any records
+    //If searched text does not match any recordsb (Early return)
     if (membersData.length === 0) {
         return (
             <h4 className='noRecords'> No records matches your search . </h4>
