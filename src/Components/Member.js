@@ -37,7 +37,7 @@ const Member = ({ id, name, email, role, checked }) => {
       setIsChecked(false)
 
     }
-  }, [checked])
+  }, [checked])  // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleEdit = () => {
 

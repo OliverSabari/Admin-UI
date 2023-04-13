@@ -11,14 +11,6 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   const selector = useSelector((store) => store.fetchMembersSlice)
 
-  const prevButtonStyle = currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
-
-  const prevIsDisabled = currentPage === 1 ? true : false
-
-  const nextButtonStyle = currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
-
-  const nextIsDisabled = currentPage === totalPages.length ? true : false
-
   //When searchText changes , Setting the current page to 1
   useEffect(() => {
 
@@ -48,7 +40,14 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   }
 
+  const prevButtonStyle = currentPage === 1 ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
 
+  const prevIsDisabled = currentPage === 1 ? true : false
+
+  const nextButtonStyle = currentPage === totalPages.length ? "pageNumbersDisabledAnchor" : "pageNumbersAnchor"
+
+  const nextIsDisabled = currentPage === totalPages.length ? true : false
+  
   return (
     <Container>
 
