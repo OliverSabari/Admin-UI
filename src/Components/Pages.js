@@ -9,7 +9,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
 
   const dispatch = useDispatch()
 
-  const selector = useSelector((store) => store.fetchMembersSlice)
+  const checkboxSelector = useSelector((store) => store.fetchMembersSlice)
 
   //When searchText changes , Setting the current page to 1
   useEffect(() => {
@@ -59,7 +59,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
           <Button
             variant='danger'
             onClick={handleDeletion}
-            disabled={selector.selectedCheckbox.length < 2 ? true : false}
+            disabled={checkboxSelector.selectedCheckbox.length < 2 ? true : false}
           >
             Delete Selected
           </Button>

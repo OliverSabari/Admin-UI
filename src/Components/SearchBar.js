@@ -53,6 +53,7 @@ const SearchBar = ({ membersData }) => {
 
         <input
           type="search"
+          data-testid="searchBar"
           placeholder='Search by name, email or role'
           className='searchBox'
           onChange={(e) => {
