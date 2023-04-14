@@ -13,6 +13,7 @@ const Header = () => {
 
       <h1
         className='headingOfProject'
+        data-testid = "heading"
       >
         Admin UI
       </h1>
