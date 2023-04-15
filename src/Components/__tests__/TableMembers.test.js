@@ -78,6 +78,6 @@ test("User should be able to delete rows in place",async () => {
 
     fireEvent.click(deleteName)
 
-    expect(memberName).toBeInTheDocument()
+    expect(memberName).not.toBeInTheDocument()
 
 })

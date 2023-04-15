@@ -108,6 +108,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
                   <button
                     className={`pageNumbersAnchor ${currentPage === item ? "activePage" : ""}`}
                     onClick={() => updatePageNumber(item)}
+                    data-testid={`pageButton${item}`}
                   >
 
                     {item}
