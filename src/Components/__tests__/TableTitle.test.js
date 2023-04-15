@@ -14,6 +14,10 @@ test("Column titles must stand out from the entries" , () => {
         </Provider>
     )
 
-    console.log(body)
+    const tableHeadingRow = body.getAllByRole("columnheader")
+
+    //ColumHeader has default style of font weight bold, so this would make sure that Column titles stands out from the entries
+    
+    expect(tableHeadingRow.length).toBe(5)
 
 })
