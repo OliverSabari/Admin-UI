@@ -49,7 +49,7 @@ const TableForMembers = ({ membersData, currentPage, name }) => {
 
                 <thead>
 
-                    <tr>
+                    <tr data-testid = "tableHeadingRow">
 
                         <th>
                             <input type="checkbox"
