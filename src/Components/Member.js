@@ -123,6 +123,7 @@ const Member = ({ id, name, email, role, checked }) => {
           name='name'
           onChange={handleChange}
           className={inputStyle}
+          data-testid={`name${id}`}
         />
 
       </td>
@@ -160,6 +161,7 @@ const Member = ({ id, name, email, role, checked }) => {
             <span
               onClick={handleEditedValue}
               className='okayButton'
+              data-testid={`okayButton${id}`}
             >
               &#10003;
             </span>
@@ -178,6 +180,7 @@ const Member = ({ id, name, email, role, checked }) => {
               alt="edit"
               className='customizeEditIcon'
               onClick={handleEdit}
+              data-testid = {`edit${id}`}
             />
 
           </span>
@@ -192,6 +195,7 @@ const Member = ({ id, name, email, role, checked }) => {
             alt="delete"
             className='customizeDeleteIcon'
             onClick={() => handleDelete(newMembersData)}
+            data-testid = {`delete${id}`}
           />
 
         </span>
