@@ -12,6 +12,25 @@ global.fetch = jest.fn(() => {
     })
 })
 
+test("There should be a search bar that can filter on any property", async () => {
+
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("searchBar"))))
+
+    const searchButton = body.getByTestId("searchBar")
+
+    expect(searchButton).toBeInTheDocument()
+
+})
+
+
+
+
 test("Search Results in homepage", async () => {
 
     const body = render(
