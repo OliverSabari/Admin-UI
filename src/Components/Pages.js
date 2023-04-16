@@ -142,6 +142,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
                 className={nextButtonStyle}
                 onClick={() => updatePageNumber(totalPages.length)}
                 disabled={nextIsDisabled}
+                data-testid="lastpage"
               >
 
                 {`>>`}
