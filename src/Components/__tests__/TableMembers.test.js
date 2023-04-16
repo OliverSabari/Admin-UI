@@ -63,7 +63,7 @@ test("User should be able to edit rows in place",async () => {
 window.confirm = jest.fn(() => true)
 
 test("User should be able to delete rows in place",async () => {
-
+ 
     const body = render(
         <Provider store={store}>
             <Body />
@@ -79,5 +79,55 @@ test("User should be able to delete rows in place",async () => {
     fireEvent.click(deleteName)
 
     expect(memberName).not.toBeInTheDocument()
+
+})
+
+test("Checkbox on the top left should be the shortcut to select or deselect all displayed rows" ,async () => {
+
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("searchBar"))))
+
+    const selectAllcheck1 = body.getByTestId("selectAllcheck1")
+
+    fireEvent.click(selectAllcheck1)
+
+    const allChecks = body.getAllByRole("checkbox")
+
+    for(let i=0;i<allChecks.length;i++){
+       
+        expect(allChecks[i].checked).toBe(true)
+    }
+
+})
+
+test("This should only apply to the ten rows displayed in the current page, and not all 50 rows" , async () => {
+
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("searchBar"))))
+
+    const selectAllcheck1 = body.getByTestId("selectAllcheck1")
+
+    fireEvent.click(selectAllcheck1)
+
+    const pageButton = body.getByTestId("pageButton2")
+
+    fireEvent.click(pageButton)
+
+    const allChecks = body.getAllByRole("checkbox")
+
+    for(let i=0;i<allChecks.length;i++){
+    
+        expect(allChecks[i].checked).toBe(false)
+    }
 
 })

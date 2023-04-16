@@ -60,6 +60,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
             variant='danger'
             onClick={handleDeletion}
             disabled={checkboxSelector.selectedCheckbox.length < 2 ? true : false}
+            data-testid="multipleDelete"
           >
             Delete Selected
           </Button>

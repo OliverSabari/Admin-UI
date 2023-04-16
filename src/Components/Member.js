@@ -101,7 +101,7 @@ const Member = ({ id, name, email, role, checked }) => {
 
   return (
 
-    <tr className={`${rowStyle}`}>
+    <tr className={`${rowStyle}`} data-testid={`row${id}`}>
 
       <td>
 
@@ -110,6 +110,7 @@ const Member = ({ id, name, email, role, checked }) => {
           checked={isChecked}
           name={id}
           onChange={handleCheckboxChange}
+          data-testid={`check${id}`}
         />
 
       </td>

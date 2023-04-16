@@ -56,6 +56,7 @@ const TableForMembers = ({ membersData, currentPage, name }) => {
                                 onChange={handleChange}
                                 name={name}
                                 checked={allCheck?.[name] || false}
+                                data-testid={`selectAll${name}`}
                             />
                         </th>
 
