@@ -25,11 +25,11 @@ test("Each page should contain 10 rows", async () => {
     const tableRows = body.getAllByRole("row")
 
     expect(tableRows.length).toBe(11) //Ten Rows of record + 1 row of table heading
-    
-  
+
+
 })
 
-test("Buttons at the bottom allow you to jump to any page" ,async () => {
+test("Buttons at the bottom allow you to jump to any page", async () => {
 
     const body = render(
         <Provider store={store}>
@@ -40,8 +40,8 @@ test("Buttons at the bottom allow you to jump to any page" ,async () => {
     await (waitFor(() => expect(screen.getByTestId("searchBar"))))
 
     const pageButton = body.getByTestId("pageButton2")
-    
-    const memberData =body.getByTestId("name1")
+
+    const memberData = body.getByTestId("name1")
 
     fireEvent.click(pageButton)  // Once user clicked page2 the first ten records should not be present
 
@@ -49,7 +49,7 @@ test("Buttons at the bottom allow you to jump to any page" ,async () => {
 
 })
 
-test("last page should be loaded when user clicks the last page button" ,async () => {
+test("last page should be loaded when user clicks the special last page button", async () => {
 
     const body = render(
         <Provider store={store}>
@@ -70,4 +70,31 @@ test("last page should be loaded when user clicks the last page button" ,async (
     const pageButton = body.getByTestId("pageButton5")
 
     expect(pageButton.classList.contains("activePage")).toBe(true)
+})
+
+
+test(" If there are 25 records for example that match a search query, then pagination buttons should only go till 3", async () => {
+
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("searchBar"))))
+
+    const searchButton = body.getByTestId("searchBar")
+
+    fireEvent.change(searchButton, {
+        target: {
+            value: "s"
+        }
+    })
+
+    const listOfButtons = body.getByTestId("listOfButtons")
+
+    // After user searches for "s" then 3 pages will be present + 4 special buttons (prev,next,first,last) = 7
+
+    expect(listOfButtons.children.length).toBe(7)
+
 })

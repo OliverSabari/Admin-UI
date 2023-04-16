@@ -69,7 +69,7 @@ const Pages = ({ membersData, currentPage, updatePageNumber, searchText }) => {
         {/* Prev Buttons */}
         <Col lg={9}>
 
-          <ul className="pageNumbersDiv">
+          <ul className="pageNumbersDiv" data-testid="listOfButtons">
 
             <li className="pageNumbersStyling">
 
