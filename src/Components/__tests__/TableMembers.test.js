@@ -22,7 +22,11 @@ test("Column titles must stand out from the entries" , () => {
 
 })
 
-
+global.fetch = jest.fn(() => {
+    return Promise.resolve({
+        json: () => Promise.resolve(MEMBERS_DATA)
+    })
+})
 
 
 window.confirm = jest.fn(() => true)

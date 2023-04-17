@@ -61,11 +61,7 @@ test("A selected row must be highlighted with a grayish background color",async 
     expect(row1.classList.contains("dataBackground")).toBe(true)
 })
 
-// global.fetch = jest.fn(() => {
-//     return Promise.resolve({
-//         json: () => Promise.resolve(MEMBERS_DATA)
-//     })
-// })
+
 
 
 test("User should be able to edit rows in place",async () => {
