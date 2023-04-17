@@ -29,28 +29,6 @@ global.fetch = jest.fn(() => {
 })
 
 
-window.confirm = jest.fn(() => true)
-
-test("User should be able to delete rows in place",async () => {
- 
-    const body = render(
-        <Provider store={store}>
-            <Body />
-        </Provider>
-    )
-
-    await (waitFor(() => expect(screen.getByTestId("delete1"))))
-
-    const deleteName = body.getByTestId("delete1")
-
-    const memberName = body.getByTestId("name1")
-
-    fireEvent.click(deleteName)
-
-    expect(memberName).not.toBeInTheDocument()
-
-})
-
 test("Checkbox on the top left should be the shortcut to select or deselect all displayed rows" ,async () => {
 
     const body = render(

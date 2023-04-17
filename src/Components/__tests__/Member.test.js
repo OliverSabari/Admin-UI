@@ -94,6 +94,31 @@ test("User should be able to edit rows in place",async () => {
 
 })
 
+
+
+window.confirm = jest.fn(() => true)
+
+test("User should be able to delete rows in place",async () => {
+ 
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("delete1"))))
+
+    const deleteName = body.getByTestId("delete1")
+
+    const memberName = body.getByTestId("name1")
+
+    fireEvent.click(deleteName)
+
+    expect(memberName).not.toBeInTheDocument()
+
+})
+
+
 window.confirm = jest.fn(() => true)
 
 test("Multiple selected rows can be deleted at once using the 'Delete Selected' button at the bottom left",async () => {
