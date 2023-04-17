@@ -105,7 +105,7 @@ test("Checkbox on the top left should be the shortcut to select or deselect all 
 
 })
 
-test("This should only apply to the ten rows displayed in the current page, and not all 50 rows" , async () => {
+test("Checkbox on the top left should only apply to the ten rows displayed in the current page, and not all 50 rows" , async () => {
 
     const body = render(
         <Provider store={store}>
