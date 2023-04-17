@@ -61,6 +61,42 @@ test("A selected row must be highlighted with a grayish background color",async 
     expect(row1.classList.contains("dataBackground")).toBe(true)
 })
 
+// global.fetch = jest.fn(() => {
+//     return Promise.resolve({
+//         json: () => Promise.resolve(MEMBERS_DATA)
+//     })
+// })
+
+
+test("User should be able to edit rows in place",async () => {
+
+    const body = render(
+        <Provider store={store}>
+            <Body />
+        </Provider>
+    )
+
+    await (waitFor(() => expect(screen.getByTestId("edit1"))))
+
+    const editName = body.getByTestId("edit1")
+
+    fireEvent.click(editName)
+
+    const memberName = body.getByTestId("name1")
+
+    fireEvent.change(memberName,{
+        target: {
+            value: "sabari"
+        }
+    } )
+
+    const okayButton = body.getByTestId("okayButton1")
+
+    fireEvent.click(okayButton)
+
+    expect(memberName.value).toBe("sabari")
+
+})
 
 window.confirm = jest.fn(() => true)
 
