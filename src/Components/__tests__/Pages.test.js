@@ -70,7 +70,7 @@ test("last page should be loaded when user clicks the special last page button",
 
     const pageButton = body.getByTestId("pageButton5")
 
-    expect(pageButton.classList.contains("activePage")).toBe(true)
+    expect(pageButton.classList.contains("activePage")).toBe(true)   //This makes sure that it has reached last page based on user action
 })
 
 
