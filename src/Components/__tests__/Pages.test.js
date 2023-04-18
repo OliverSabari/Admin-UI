@@ -6,6 +6,7 @@ import { MEMBERS_DATA } from "../../Utils/mockData"
 import '@testing-library/jest-dom'
 
 
+//Mocking the fetch function to resolve the promise
 global.fetch = jest.fn(() => {
     return Promise.resolve({
         json: () => Promise.resolve(MEMBERS_DATA)
