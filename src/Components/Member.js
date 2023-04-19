@@ -8,18 +8,25 @@ const Member = ({ id, name, email, role, checked }) => {
 
   const dispatch = useDispatch()
 
+  //To handle the edits performed by user
   const [newMembersData, setNewMembersData] = useState({ id, name, email, role })
 
+  //Boolean representation of edit selected or not
   const [isEditSelected, setIsEditSelected] = useState(false)
 
+  //Boolean representation if user decides to cancel edit
   const [cancelEdit, setCancelEdit] = useState(false)
 
+  //user clicked on checkbox or not
   const [isChecked, setIsChecked] = useState(false)
 
+  //when user did not select the edit, data should be readonly
   const isReadOnly = isEditSelected ? "" : "readonly"
 
+  //To make data as input box based on edit selected or not
   const inputStyle = isEditSelected ? "withBorderStyle" : "withoutBorderStyle"
 
+  //To make the bg color of data based on checkbox selected or not
   const rowStyle = isChecked ? "dataBackground" : "noDataBackground"
 
   useEffect(() => {
