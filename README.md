@@ -11,6 +11,8 @@ Below are the requirements of Geektrust front end Coding challenge that has been
 5. You should be able to select one or more rows. A selected row is highlighted with a grayish background color. Multiple selected rows can be deleted at once using the 'Delete Selected' button at the bottom left.
 6. Checkbox on the top left is a shortcut to select or deselect all displayed rows. This should only apply to the ten rows displayed in the current page, and not all 50 rows.
 
+Unit and Integration testing completed for all the above requirements.
+
 ## Available Scripts
 
 In the project directory, you can run:
